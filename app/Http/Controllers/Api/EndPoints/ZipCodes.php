@@ -33,7 +33,7 @@ class ZipCodes extends Controller
 
     public function dropzoneFile(Request $request){
 
-        $path =  storage_path('app/cdmx.json');
+        $path =  storage_path('app/campeche.json');
         $json = File::get($path);
         $data = json_decode($json, true);
         
@@ -41,7 +41,7 @@ class ZipCodes extends Controller
         foreach($data as $i){
             Code::updateOrCreate(
                 [
-                    'zip_code' => "0".$i['codigo']
+                    'zip_code' => $i['codigo']
                 ],
                 [
                     'locality' => $i['ciudad'],
